@@ -3,8 +3,9 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 # An image gradient (High-pass filters) is a directional change in the intensity or the color in an image
-# 1-Sobel and Scharr Derivatives ==> t is more resistant to noise. You can specify the direction of derivatives to be taken,
+# 1-Sobel and Scharr Derivatives ==> is more resistant to noise. You can specify the direction of derivatives to be taken,
 # vertical or horizontal (by the arguments, yorder and xorder respectively), If ksize = -1, a 3x3 Scharr filter
+
 # 2-Laplacian Derivatives
 
 img = cv.imread('sudoku 001.jpg', cv.IMREAD_GRAYSCALE)
