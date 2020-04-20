@@ -1,8 +1,10 @@
 import cv2 as cv
 from matplotlib import pyplot as plt
 import numpy as np
-# kernel, convolution matrix, or mask is a small matrix. It is used for blurring, sharpening,
-# embossing, edge detection, and more. This is accomplished by doing a convolution between a kernel and an image.
+
+# Smoothing (Image Filtering)
+# kernel, convolution matrix, or mask is a small matrix. It is used for blurring, sharpening, embossing, edge detection, and more.
+# This is accomplished by doing a convolution between a kernel and an image.
 
 # As in one-dimensional signals, images also can be filtered with various low-pass filters (LPF),
 # high-pass filters (HPF), etc. LPF helps in removing noise, blurring images, etc. HPF filters help
@@ -17,10 +19,9 @@ import numpy as np
 # 1-Averaging ==> This is done by convolving an image with a normalized box filter.
 # It simply takes the average of all the pixels under the kernel area and replaces the central element
 
-# 2-Gaussian filter ==> using diff-weighted-pixels, for sides weights are low weighted while
-# for center is high weighted
+# 2-Gaussian filter ==> using diff-weighted-pixels, for sides weights are low weighted pixels, while for center is high weighted pixels
 
-# 3-Median Blurring ==> median of all the pixels under the kernel area and the central element is
+# 3-Median Blurring ==> takes median of all the pixels under the kernel area and the central element is
 # replaced with this median value, This is highly effective against salt-and-pepper noise in an image.
 # the central element is always replaced by some pixel value in the image. It reduces the noise effectively.
 # Its kernel size should be a positive odd integer.
@@ -29,12 +30,16 @@ import numpy as np
 # But the operation is slower compared to other filters, Bilateral filtering also takes a Gaussian filter
 # in space, but one more Gaussian filter which is a function of pixel difference.
 
+# Depth Combinations ==> CV_8U	        -1/CV_16S/CV_32F/CV_64F
+#                        CV_16U/CV_16S	-1/CV_32F/CV_64F
+#                        CV_32F	        -1/CV_32F/CV_64F
+#                        CV_64F	        -1/CV_64F
 
 img = cv.imread('opencv-logo.png')
 img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
+# Generating [5,5] white matrix of |det| = 1/25
 kernel = np.ones((5,5),np.float32)/25
-
 
 dst = cv.filter2D(img,-1,kernel)
 blur = cv.blur(img, (2,2))

@@ -1,10 +1,10 @@
 import cv2 as cv
 import numpy as np
 from matplotlib import pyplot as plt
-# Morphological transforamtions are performed on binary images,
-# cv.dilate(img, kernel ==> defined shape,
-# It needs two inputs, one is our original image, second one is called structuring element or kernel
-# which decides the nature of operation.
+
+# Morphological transformations are performed on binary images, cv.dilate(img, kernel ==> defined shape,
+# It needs two inputs, one is our original image, second one is called structuring element or kernel which decides the nature of operation.
+
 # Two basic morphological operators are Erosion and Dilation.
 
 # 1-Erosion ==> it erodes away the boundaries of foreground object, A pixel in the original image (either 1 or 0)
@@ -27,8 +27,8 @@ from matplotlib import pyplot as plt
 img = cv.imread('1.jpg', cv.IMREAD_GRAYSCALE)
 
 _, th1 = cv.threshold(img,180,255,cv.THRESH_BINARY_INV)
-# Generating a white rectangle of l=5, w=5 as a kernel
-kernel = np.ones((2,2),np.uint8)
+# Generating a white matrix of l=5, w=5 as a kernel
+kernel = np.ones((5,5),np.uint8)
 
 ero = cv.erode(th1, kernel, iterations=1)
 dil = cv.dilate(th1, kernel, iterations=1)
