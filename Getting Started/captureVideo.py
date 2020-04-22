@@ -1,8 +1,13 @@
 import cv2
 import datetime
+
 # Capturing video frame using video capture from open-cv, returning the frame captured into a var
 # called frame, then showing this frame var using imshow in an infinite loop, then releasing the resources
 # when 'q' key is pressed
+
+# cap.read() returns a bool (True/False). If frame is read correctly, it will be True. So you can check end of the video by checking this return value.
+# Ret ==> will obtain return value from getting the camera frame, either true of false
+
 
 # Changing the color to any scale using cv2.cvtColor(source, code of color)
 # cap = cv2.VideoCapture('friends.s04e01.720p.bluray.x264-sujaidr.mkv') == > processing on a video file

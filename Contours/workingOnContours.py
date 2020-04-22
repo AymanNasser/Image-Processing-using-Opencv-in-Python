@@ -36,10 +36,6 @@ print(len(contours))
 cv.drawContours(img, contours, -1, (127,127,127), 3)
 cv.imshow('image',img)
 
-rows = 1
-columns = 3
-
-
 cv.waitKey(0)
 cv.destroyAllWindows()
 
