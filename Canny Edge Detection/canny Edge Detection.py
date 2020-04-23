@@ -11,7 +11,8 @@ import numpy as np
 # 4-Hysteresis Thresholding
 # 5-Edge Tracking by hystresis
 
-# cv.Canny(src, first threshold for the hysteresis procedure, second threshold for the hysteresis procedure)
+# cv.Canny(src, first threshold for the hysteresis procedure, second threshold for the hysteresis procedure, aperture size for the Sobel operator)
+
 
 img = cv.imread('messi5.jpg',cv.IMREAD_GRAYSCALE)
 
